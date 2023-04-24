@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.container-box {
+  width: 100%;
+  height: 66px;
+ 
+  background: rgb(244, 244, 244);
+  box-shadow: 0 3px px rgba(0, 0, 0, 0.6);
+  /* text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+    0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1); */
+}
+
+.navbar {
+  height: 70px;
+  width: 84%;
+  margin: 0 8%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  /* background-color: antiquewhite; */
+  /* z-index: auto; */
+
+}
+
+.navbar_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+.img-fluid{
+  width: 100px;
+}
+
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: rgb(221, 231, 235);
+  z-index: 999999;
+  box-shadow: 0px 4px 10px rgb(205, 205, 205);
+}
+
+/* ul li {
+  margin-right: 50px;
+}
+
+ul li:last-child {
+  margin-right: 0;
+} */
+
+ul li a {
+  color: #2b2a2a;
+  font-family: Arial;
+  transition: all .3s ease-in;
+}
+
+ul li a:hover {
+  color: #622bbb;
+
+}
+
+.current {
+  color: #622bbb;
+
+}
+
+
+/* ------------home-------------------------- */
+
+.home {
+  height: calc(100vh - 70px);
+  position: relative;
+}
+
+.home img {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  z-index: -1;
+}
+
+.home>.container {
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  color: #fff;
+}
+
+/*  */
+.home>.container h1 {
+  font-weight: 700;
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+
+.home>.container p {
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+/* ----------------button----------------- */
+.home>.container button {
+  background-color: transparent;
+  color: white;
+  border: 3px solid white;
+  padding: 10px 30px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 30px;
+  transition: all .5s ease-in-out;
+}
+
+.home>.container button>span.bg {
+  background: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+.home>.container button:hover {
+  color: black;
+}
+
+.home>.container button:hover>span.bg {
+  transition: all .3s ease-in-out;
+}
+
+.home>.container button.bottom>.bg {
+  left: 0;
+  bottom: 100%;
+  transform: translateY(200%);
+}
+
+.home>.container button.bottom:hover>.bg {
+  transform: translateY(100%);
+}
