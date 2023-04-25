@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
+  width: 40%;
 }
 
 .img-fluid{
@@ -46,7 +46,6 @@
   position: fixed;
   top: 0;
   left: 0;
-
   background-color: rgb(221, 231, 235);
   z-index: 999999;
   box-shadow: 0px 4px 10px rgb(205, 205, 205);
@@ -79,7 +78,7 @@ ul li a:hover {
 
 /* ------------home-------------------------- */
 
-.home {
+/* .home {
   height: calc(100vh - 70px);
   position: relative;
 }
@@ -94,7 +93,7 @@ ul li a:hover {
 
 .home>.container {
   height: 100%;
-  /* position: absolute; */
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +101,6 @@ ul li a:hover {
   color: #fff;
 }
 
-/*  */
 .home>.container h1 {
   font-weight: 700;
   font-size: 60px;
@@ -115,7 +113,7 @@ ul li a:hover {
 }
 
 /* ----------------button----------------- */
-.home>.container button {
+/*.home>.container button {
   background-color: transparent;
   color: white;
   border: 3px solid white;
@@ -153,4 +151,4 @@ ul li a:hover {
 
 .home>.container button.bottom:hover>.bg {
   transform: translateY(100%);
-}
+} */
