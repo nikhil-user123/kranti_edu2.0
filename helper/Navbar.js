@@ -1,0 +1,39 @@
+import React from 'react'
+
+import Link from 'next/link'
+import Image from 'next/image'
+import { useState } from 'react'
+
+
+export default function Navbar() {
+  const [showIcons, setShowIcons] = useState(false)
+  return (
+    <div >
+      <header>
+        <nav className='navbar scrolled'>
+          <Link href="/" className="logo me-auto"><Image src="/educational.jpg" alt="" width="200" height="50" className="img-fluid" /></Link>
+          <ul className='navbar_content'>
+            <li><Link className="current" href="/">Home</Link></li>
+            <li><Link href="/Services">Servises</Link></li>
+            <li><Link href="/About">About us</Link></li>
+            <li><Link href="/Contect">Contact</Link></li>
+            <Link href="/login_component" class="get-started-btn">Get Started</Link>
+          </ul>
+          <div className='hamburger_menu'>
+            <a href="#" onClick={() => setShowIcons(!showIcons)}>
+              <i class="fa-solid fa-bars fa-xl" style={{ color: "#ad56b8" }}></i>
+            </a>
+          </div>
+        </nav>
+        <div className={showIcons ? "dropdown_menu" : 'displaynone'}>
+            <li><Link className="dp_current" href="/">Home</Link></li>
+            <li><Link href="/Services">Servises</Link></li>
+            <li><Link href="/About">About us</Link></li>
+            <li><Link href="/Contect">Contact</Link></li>
+            <li><Link href="/login_component" class="get-started-btn">Get Started</Link></li>
+        </div>
+      </header>
+    </div>
+
+  )
+}

@@ -1,0 +1,378 @@
+:root {
+    --white: #FFF;
+    --black: #000;
+    --dark: #1E1E1E;
+    --gray: rgba(1, 1, 1, 0.6);
+    --lite: rgba(255, 255, 255, 0.6);
+    --primary: #002347;
+    --secondary: #fdc632;
+}
+
+
+/***************************
+            DEFAULT
+****************************/
+
+a {
+    text-decoration: none !important;
+    min-width: fit-content;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    color: #fff;
+}
+
+main {
+    width: 100%;
+}
+
+a,
+button {
+    transition: 0.5s;
+}
+
+a,
+p {
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    outline: none !important;
+}
+
+#hero {
+    margin: auto;
+    width: 100%;
+    height: 80vh;
+    background: url("/educational-theme-close-up-student-writing-classroom-min.jpg") top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -99999;
+}
+
+#hero .container {
+    position: relative;
+    padding-top: 72px;
+}
+
+.overlay {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    height: 80vh;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -99;
+}
+
+
+.home {
+    height: 80vh;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.home>.container2 {
+    /* height: 90%; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 50px;
+    color: #fff;
+}
+
+/*  */
+.home>.container2 h1 {
+    font-weight: 700;
+    font-size: 60px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.home>.container2 p {
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+/* ----------------button----------------- */
+.home>.container2 button {
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 30px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 30px;
+    transition: all .5s ease-in-out;
+}
+
+.home>.container2 button>span.bg {
+    background: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+.home>.container2 button:hover{
+    color: black;
+}
+
+.home>.container2 button:hover>span.bg {
+    transition: all .3s ease-in-out;
+}
+
+.home>.container2 button.bottom>.bg {
+    left: 0;
+    bottom: 100%;
+    transform: translateY(200%);
+}
+
+.home>.container2 button.bottom:hover>.bg {
+    transform: translateY(100%);
+}
+
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    height: 70vh;
+    width: 100%;
+    background-color: #e0e0e0;
+}
+
+    .row {
+        width: 70%;
+        margin-top:5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+.img2 {
+    height: 40%;
+    width: 90%;
+}
+
+
+.content_home {
+    width: 50%;
+}
+
+.img2_container {
+    width: 40%;
+}
+
+.container_about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.about .content_home h3 {
+    text-align: justify;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+.about .content_home ul {
+    text-align: justify;
+    list-style: none;
+    padding: 0;
+}
+
+.about .content_home ul li {
+    padding-bottom: 10px;
+}
+
+.about .content_home ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #5fcf80;
+}
+
+.about .content_home .learn-more-btn {
+    background: #5fcf80;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 25px 9px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.about .content_home .learn-more-btn:hover {
+    background: #3ac162;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .about .content_home .learn-more-btn {
+        margin: 0 48px 0 0;
+        padding: 6px 18px;
+    }
+}
+
+/** why_us section start*/
+
+.why_us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #440909;
+}
+
+.whyus_container{
+    height: 45px;
+    background-color: #5fcf80;
+}
+
+
+/** why_us section end*/
+
+/** courses section start*/
+
+/** courses section end*/
+
+
+
+.single-review {
+    -webkit-box-shadow: 0 0.313rem 0.875rem var(--secondary-l-color);
+    box-shadow: 0 0.313rem 0.875rem var(--secondary-l-color);
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.single-review .card-top {
+    position: relative;
+}
+
+.single-review .quot-icon {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+.single-review .reviewer {
+    position: relative;
+}
+
+.single-review .reviewer::after {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    bottom: calc(100% - 10px);
+    left: 15%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.single-review:hover {
+    -webkit-box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125);
+    box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125);
+}
+
+.margin {
+    margin-top: 5%;
+}
+@media (max-width: 975px) {
+    #hero {
+        /* height: 00vh; */
+        /* width: 100vh; */
+        left: 0;
+        top: 0;
+        height: 100vh;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 200%;
+        overflow: hidden;
+    }
+
+    .row{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(250, 242, 232);
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+    }
+
+    .content_home{
+        width: auto;
+        padding: 10% 5% 10% 5%;
+    }
+
+    .home {
+        height: 60vh;
+    }
+
+    .home>.container2 h1 {
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: #fff;
+    }
+
+    .home>.container2 {
+        padding: 0;
+        display: flex;
+        height: 60vh;
+    }
+
+    .home>.container2 button>span.bg {
+        background: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        transition: all .3s ease-in-out;
+    }
+    
+    .home>.container2 button:hover{
+        color: black;
+    }
+    
+    .home>.container2 button:hover>span.bg {
+        transition: all .3s ease-in-out;
+    }
+    
+    .home>.container2 button.bottom>.bg {
+        left: 0;
+        bottom: 100%;
+        transform: translateY(200%);
+    }
+    
+    .home>.container2 button.bottom:hover>.bg {
+        transform: translateY(100%);
+    }
+}
