@@ -32,13 +32,13 @@ export default function Home() {
                             <div className="content_home">
                                 <h3>Kranti is an innovative organization that is dedicated to transforming education through:</h3>
                                 <ul>
-                                    <li><i class="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Smart classrooms:</b> Kranti introduces cutting-edge
+                                    <li><i className="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Smart classrooms:</b> Kranti introduces cutting-edge
                                         technological solutions in classrooms, including interactive whiteboards, projectors, and smart devices,
                                         to create engaging and interactive learning environments.</li>
-                                    <li><i class="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Inclusive learning:</b> Kranti is committed to providing equal
+                                    <li><i className="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Inclusive learning:</b> Kranti is committed to providing equal
                                         educational opportunities to all students, including those with special needs, through an inclusive
                                         learning environment.</li>
-                                    <li><i class="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Comprehensive training and support:</b> Kranti provides
+                                    <li><i className="fa-regular fa-circle-check" style={{ color: "#9141ac", }}></i> <b>Comprehensive training and support:</b> Kranti provides
                                         latest technological tools and equipment, and
                                         assists educational institutions in planning and implementing technological infrastructure.</li>
                                 </ul>
@@ -53,7 +53,7 @@ export default function Home() {
                 </section>
                 <div className='why_us'>
                     <div className='whyus_container' >
-                        sdfasdf
+                        why us section 
                     </div>
                 </div>
             </main>

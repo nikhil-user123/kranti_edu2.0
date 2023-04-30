@@ -17,20 +17,20 @@ export default function Navbar() {
             <li><Link href="/Services">Servises</Link></li>
             <li><Link href="/About">About us</Link></li>
             <li><Link href="/Contect">Contact</Link></li>
-            <Link href="/login_component" class="get-started-btn">Get Started</Link>
+            <Link href="/login_component" className="get-started-btn">Get Started</Link>
           </ul>
           <div className='hamburger_menu'>
             <a href="#" onClick={() => setShowIcons(!showIcons)}>
-              <i class="fa-solid fa-bars fa-xl" style={{ color: "#ad56b8" }}></i>
+              <i className="fa-solid fa-bars fa-xl" style={{ color: "#ad56b8" }}></i>
             </a>
           </div>
         </nav>
         <div className={showIcons ? "dropdown_menu" : 'displaynone'}>
-            <li><Link className="dp_current" href="/">Home</Link></li>
-            <li><Link href="/Services">Servises</Link></li>
-            <li><Link href="/About">About us</Link></li>
-            <li><Link href="/Contect">Contact</Link></li>
-            <li><Link href="/login_component" class="get-started-btn">Get Started</Link></li>
+            <li><Link onClick={() => setShowIcons(!showIcons)} className="dp_current" href="/">Home</Link></li>
+            <li><Link onClick={() => setShowIcons(!showIcons)} href="/Services">Servises</Link></li>
+            <li><Link onClick={() => setShowIcons(!showIcons)} href="/About">About us</Link></li>
+            <li><Link onClick={() => setShowIcons(!showIcons)} href="/Contect">Contact</Link></li>
+            <li><Link onClick={() => setShowIcons(!showIcons)} href="/login_component" className="get-started-btn">Get Started</Link></li>
         </div>
       </header>
     </div>
