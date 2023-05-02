@@ -53,7 +53,16 @@ export default function Home() {
                 </section>
                 <div className='why_us'>
                     <div className='whyus_container' >
-                        why us section 
+                        <h3>Why Choose Kranti?</h3>
+                        <p>
+                            Kranti is a pioneering organization in the education sector that is dedicated to making classrooms
+                            smarter and more accessible. They believe in the transformative power of technology and are committed to
+                            providing equal educational opportunities to all students. {"Kranti\'s"} comprehensive training and support
+                            helps educational institutions create engaging and inclusive learning environments.
+                        </p>
+                        <div className="text-center">
+                            <Link href="/about" className="more-btn">Learn More <i className="fa-solid fa-chevron-right"></i></Link>
+                        </div>
                     </div>
                 </div>
             </main>

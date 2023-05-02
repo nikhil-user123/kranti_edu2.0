@@ -9,21 +9,30 @@ import '@/styles/aboutcss.css'
 import '@/styles/footer.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {useEffect} from 'react'
-import Navbar from '@/helper/Navbar'
+import { useEffect } from 'react'
+import Navbar from '@/partials/Navbar'
+// import { useRouter } from "next/router";
+// import Sidebar from '@/layout/sidebar'
+
 
 
 export default function App({ Component, pageProps }) {
+
   useEffect(() => {
     AOS.init({
       offset: 120,
       duration: 1000
     });
   }, []);
+
+  
+
   return (
     <>
       <Navbar />
-      <Component {...pageProps} />
+        <Component {...pageProps} />
     </>
   )
 }
+
+const EmtyLayout = ({ children }) => <>{children}</>

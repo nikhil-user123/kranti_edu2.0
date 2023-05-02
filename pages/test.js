@@ -1,4 +1,4 @@
-import Footer from "@/helper/footer";
+import Footer from "@/partials/footer";
 
 
 const test = () => {

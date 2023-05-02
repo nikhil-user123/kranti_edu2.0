@@ -15,14 +15,26 @@ fieldset {
     color: var(--primary);
 }
 
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+
 .flex,
 .fixed_flex {
     display: flex;
 }
 
+.flex-content i{
+    font-size: 9px;
+    padding: 5px;
+}
+
 .flex-content {
     width: 100%;
-    position: relative;
 }
 
 .padding_1x {
@@ -109,7 +121,7 @@ fieldset {
 }
 
 footer {
-    background-color: rgb(130, 139, 187);
+    background-color:#ab7eff;
     color: var(--lite);
 }
 

@@ -29,6 +29,11 @@ span {
   font-family: "Fira Sans", sans-serif;
 }
 
+/* main{
+  margin: auto;
+  max-width: 90%;
+} */
+
 body,
 html,
 .App,
@@ -46,6 +51,10 @@ html,
   align-items: center;
 }
 
+.flex_direction_row{
+  display: flex;
+  flex-direction: row;
+}
 
 .navbar-light {
   background-color: #ffffff;

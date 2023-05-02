@@ -38,7 +38,7 @@ body,html{
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     list-style: none;
     cursor: pointer;
 }

@@ -1,0 +1,19 @@
+
+.sidebar_container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.sidebar {
+    background: #cba0ff;
+    color: #fff;
+    height: 90vh;
+    width: 200px;
+
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: all 0.5s;
+}

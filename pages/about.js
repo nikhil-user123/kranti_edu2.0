@@ -65,13 +65,24 @@ export default function About() {
                     Origin Story
                 </h3>
                 <p>
-                    While doing research work for their PhDs from the University of Auckland in 2014, our founders came across one of the API industrys pain points: SDKs. They realized that API providers who spent hundreds of thousands of dollars every year on improving developer experience, by providing SDKs and user-friendly documentation were able to reach a wider developer audience for their APIs compared to API providers who werent able to do so.
+                    While doing research work for their PhDs from the University
+                    of Auckland in 2014, our founders came across one of the API 
+                    industrys pain points: SDKs. They realized that API providers who spent hundreds 
+                    of thousands of dollars every year on improving developer experience, by providing 
+                    SDKs and user-friendly documentation were able to reach a wider developer audience for 
+                    their APIs compared to API providers who werent able to do so.
                 </p>
                 <p>
-                    It was so clear that even though writing SDKs and documentation was a difficult and expensive task, it followed repeatable patterns which could be defined as logic blocks in a code generation engine. So, as a research project, they started working on a code generation engine which dynamically generated SDKs using API description as input.
+                    It was so clear that even though writing SDKs and documentation
+                    was a difficult and expensive task, it followed repeatable patterns which could be defined as 
+                    logic blocks in a code generation engine. So, as a research project, they started working on 
+                    a code generation engine which dynamically generated SDKs using API description as input.
                 </p>
                 <p>
-                    After a rigorous journey, this research project was selected as a candidate for commercialization by Return on Science (a NZ national research commercialization program focused on bringing new academic research to market) and the concept was transformed into a product i.e. APIMatic.
+                    After a rigorous journey, this research project was selected as
+                    a candidate for commercialization by Return on Science (a NZ national 
+                    research commercialization program focused on bringing new academic research 
+                    to market) and the concept was transformed into a product i.e. APIMatic.
                 </p>
             </div>
             <div className="container-divider"></div>
@@ -80,7 +91,11 @@ export default function About() {
                     Flash Forward Today
                 </h3>
                 <p>
-                    APIMatic has come a long way since its inception 3 years ago. Having started with only generating SDKs, APIMatic now provides solutions in other areas of developer experience as well. Presently, APIMatic is used by numerous organizations around the world to:
+                    APIMatic has come a long way since its inception 
+                    3 years ago. Having started with only generating SDKs, 
+                    APIMatic now provides solutions in other areas of developer 
+                    experience as well. Presently, APIMatic is used by numerous 
+                    organizations around the world to:
                 </p>
                 <ul>
                     <li>Create and store definitions of their APIs</li>
