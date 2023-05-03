@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <div >
       <header>
-        <nav className={`navbar ${isFixed ? "scrolled" : ""}`}>
+        <nav className={`navbar ${isFixed ? "scrolled_nav" : ""}`}>
           <Link href="/" className="logo me-auto"><Image src="/educational.jpg" alt="" width="200" height="50" className="img-fluid" /></Link>
           <ul className='navbar_content'>
             <li><Link className="current" href="/">Home</Link></li>

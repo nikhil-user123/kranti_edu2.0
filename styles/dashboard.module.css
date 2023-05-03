@@ -1,0 +1,92 @@
+.dashboard_container {
+    width: 98%;
+    height: 80vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.header {
+    width: 80%;
+    /* height: 15%; */
+    background-image: linear-gradient(to right bottom, #5050503a, #3b3b3bcd), url("/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: #fff;
+    font-weight: 300;
+    padding: 25px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+
+    border-radius: 20px;
+}
+
+.header h1 {
+    color: azure;
+}
+
+
+.courses_section {
+    width: 80%;
+    margin: 30px;
+    padding: 10px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
+.courses_section span {
+    width: 100%;
+    height: 20%;
+    margin-left: 30px;
+}
+
+.courses_section hr {
+    width: 60px;
+    margin-top: 10px;
+}
+
+.courses {
+    width: 100%;
+    height: auto;
+
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card {
+    width: 30vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 5px rgba(75, 75, 75, 0.07);
+
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: auto;
+    }
+}
