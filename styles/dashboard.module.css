@@ -86,6 +86,10 @@
     border-radius: 15px;
 }
 
+.image{
+    width: auto;
+}
+
 .card p{
     text-align: justify;
     margin-top: 10px;

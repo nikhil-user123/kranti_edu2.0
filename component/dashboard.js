@@ -1,5 +1,7 @@
 import styles from '@/styles/dashboard.module.css'
 import Image from 'next/image';
+import { Courses } from '@/helper/constants';
+
 
 const Dashboard = () => {
     return (
@@ -16,48 +18,17 @@ const Dashboard = () => {
                     <hr />
                 </span>
                 <div className={styles.courses}>
-                    <div className={styles.card}>
-                        <Image className={styles.image} src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Maths</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Science</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Physics</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>English</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Bio</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
-                    <div className={styles.card}>
-                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>chemistry</strong>
-                        <p>ode has to be executed after the state has been updated ?
-                            Place that code in the call back function which is
-                            the second argument to the setState method.</p>
-                    </div>
+
+                    {
+                        Courses.map((course, index) => (
+                        <div key={index} className={styles.card}>
+                            <Image className={styles.image} src={course.url} alt="image" width="200" height="100" />
+                            <strong>{course.subject}</strong>
+                            <p>{course.desctiption}</p>
+                        </div>))
+
+                    }
+
                 </div>
             </div>
         </div>
