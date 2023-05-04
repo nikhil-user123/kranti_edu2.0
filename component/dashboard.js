@@ -18,21 +18,42 @@ const Dashboard = () => {
                 <div className={styles.courses}>
                     <div className={styles.card}>
                         <Image className={styles.image} src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Class 6</strong>
+                        <strong>Maths</strong>
                         <p>ode has to be executed after the state has been updated ?
                             Place that code in the call back function which is
                             the second argument to the setState method.</p>
                     </div>
                     <div className={styles.card}>
                         <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Class 7</strong>
+                        <strong>Science</strong>
                         <p>ode has to be executed after the state has been updated ?
                             Place that code in the call back function which is
                             the second argument to the setState method.</p>
                     </div>
                     <div className={styles.card}>
                         <Image src="/course_img.jpg" alt="image" width="200" height="100" />
-                        <strong>Class 8</strong>
+                        <strong>Physics</strong>
+                        <p>ode has to be executed after the state has been updated ?
+                            Place that code in the call back function which is
+                            the second argument to the setState method.</p>
+                    </div>
+                    <div className={styles.card}>
+                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
+                        <strong>English</strong>
+                        <p>ode has to be executed after the state has been updated ?
+                            Place that code in the call back function which is
+                            the second argument to the setState method.</p>
+                    </div>
+                    <div className={styles.card}>
+                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
+                        <strong>Bio</strong>
+                        <p>ode has to be executed after the state has been updated ?
+                            Place that code in the call back function which is
+                            the second argument to the setState method.</p>
+                    </div>
+                    <div className={styles.card}>
+                        <Image src="/course_img.jpg" alt="image" width="200" height="100" />
+                        <strong>chemistry</strong>
                         <p>ode has to be executed after the state has been updated ?
                             Place that code in the call back function which is
                             the second argument to the setState method.</p>
