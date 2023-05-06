@@ -3,7 +3,7 @@ import Footer from "@/partials/footer";
 
 const test = () => {
     return (
-        <div>
+        <div  className="center_of_page">
             <Footer />
         </div>
     );

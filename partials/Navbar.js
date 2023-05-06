@@ -32,7 +32,7 @@ export default function Navbar() {
           <ul className='navbar_content'>
             <li><Link className="current" href="/">Home</Link></li>
             <li><Link href="/Services">Servises</Link></li>
-            <li><Link href="/About">About us</Link></li>
+            <li><Link href="/about">About us</Link></li>
             <li><Link href="/Contect">Contact</Link></li>
             <Link href="/login_component" className="get-started-btn">Get Started</Link>
           </ul>
