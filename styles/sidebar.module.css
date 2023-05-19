@@ -1,6 +1,6 @@
 
 .sidebar_container{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: flex;
     flex-direction: row;
 }
@@ -8,14 +8,16 @@
 
 
 .sidebar {
-    background: #cba0ff;
-    color: #fff;
-    height: 90vh;
-    width: 200px;
+    background: #fefeff;
+    color: #364050;
+    height: 100vh;
+    width: 250px;
 
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     transition: all 0.5s;
+
+    box-shadow: rgba(112, 144, 176, 0.18) 14px 17px 40px 4px;
 }
 
 .top_section{
@@ -41,6 +43,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    color: #364050;
+    font-size: 1rem;
 
     cursor: pointer;
     padding: 10px 20px 5px 15px;
@@ -48,7 +52,7 @@
 }
 
 .link_text{
-    padding-left: 15px;
+    padding-left: 20px;
 } 
 
 .logout_button{

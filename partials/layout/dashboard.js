@@ -11,38 +11,38 @@ const DashboardLayout = ({ children }) => {
     const menuItem = [
         {
             name: "Dashboard",
-            icon: <i className="fa-solid fa-gauge" style={{ color: "#ffffff;" }}></i>,
+            icon: <i className="fa-solid fa-gauge" ></i>,
             href: "/dashboard",
         },
         {
             name: "Analytics",
-            icon: <i className="fa-solid fa-chart-line" style={{ color: "#ffffff;" }}></i>,
+            icon: <i className="fa-solid fa-chart-line" ></i>,
             href: "/dashboard/analytics",
-
         },
         {
             name: "Profile",
-            icon: <i className="fa-solid fa-user" style={{ color: "#ffffff;" }}></i>,
+            icon: <i className="fa-solid fa-user" ></i>,
             href: "/dashboard/profile"
         },
         {
             name: "Settings",
-            icon: <i className="fa-solid fa-gear" style={{ color: "#ffffff;" }}></i>,
+            icon: <i className="fa-solid fa-gear" ></i>,
             href: "/dashboard/settings"
         }
     ]
 
 
     return (
+        // style={{ marginLeft: isOpen ? "50px" : "0px" }}
         <div className={`${styles.sidebar_container}`}>
-            <div style={{ width: isOpen ? "220px" : "50px" }} className={styles.sidebar}>
+            <div  className={styles.sidebar}>
                 <div className={styles.top_section}>
-                    <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+                    <h1 className="logo">
                         <Image src="/educational.png" alt="" width="67" height="38" />
                     </h1>
-                    <div style={{ marginLeft: isOpen ? "50px" : "0px" }} title="sidebar" className="bars">
+                    {/* <div title="sidebar" className="bars">
                         <i className="fa-solid fa-bars" onClick={toggle} style={{ color: "#ffffff;", cursor: "pointer" }}></i>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.link_section}>
                     {
@@ -50,7 +50,7 @@ const DashboardLayout = ({ children }) => {
 
                             <Link title={item.name} className={styles.link} href={item.href} key={index}>
                                     <div className="" >{item.icon}</div>
-                                    <div style={{ display: isOpen ? "block" : "none" }} className={styles.link_text}>{item.name}</div>  
+                                    <div className={styles.link_text}>{item.name}</div>  
                             </Link>
                         ))
                     }

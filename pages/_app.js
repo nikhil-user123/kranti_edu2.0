@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import DashboardLayout from '@/partials/layout/dashboard'
 import Footer from '@/partials/footer'
 import GoToTop from '@/partials/gototop'
+import Dashboard_Nav from '@/partials/layout/navbar'
 
 
 
@@ -35,8 +36,8 @@ export default function App({ Component, pageProps }) {
   if (pathname.startsWith("/dashboard")) {
     return (
       <>
-        <Navbar />
         <DashboardLayout>
+          <Dashboard_Nav />
           <Component {...pageProps} />
         </DashboardLayout>
       </>
