@@ -47,9 +47,60 @@
 
 .botton_footer{
     width: 100%;
+    padding: 10px 9vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+}
+
+.link{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container2{
+    font-size: 12px;
+    color: rgb(60, 60, 60);
 }
 
 
+.topbtn{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+    z-index: 9999;
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    color: #fff;
+    padding: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #7024cd;
+    border-radius: 50%;
+}
+
+.icon{
+    animation: gototop 1.2s linear infinite alternate-reverse;
+}
+
+@keyframes gototop {
+    0%{
+        transform: translateY(-0.2rem);
+    }
+
+    100%{
+        transform: translateY(.2rem);
+    }
+}
 
 @media (max-width: 892px){
     .container{

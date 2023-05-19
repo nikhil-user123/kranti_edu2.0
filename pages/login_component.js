@@ -1,3 +1,5 @@
+import Link from "next/link";
+import styles from "@/styles/login.module.css"
 import React, { Component, useState } from "react";
 
 export default function Login() {
@@ -35,7 +37,7 @@ export default function Login() {
   }
 
   return (
-    <div className="auth-wrapper">
+    <div className={styles.auth-wrapper}>
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
           <h3>Sign In</h3>
@@ -79,7 +81,7 @@ export default function Login() {
             </button>
           </div>
           <p className="forgot-password text-right">
-            <a href="/sign-up">Sign Up</a>
+            <Link href="/sign-up">Sign Up</Link>
           </p>
         </form>
       </div>

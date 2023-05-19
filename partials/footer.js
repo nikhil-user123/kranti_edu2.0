@@ -46,14 +46,22 @@ const Footer = () => {
                 <div className={styles.container2}>
                     <div className={styles.Copyright}>
                         © Copyright
-                        <strong>Kranti</strong>. All Rights Reserved
+                        <strong> Kranti</strong>. All Rights Reserved
                     </div>
                     <div className={styles.Credits}>
                         Designed by Nikhil Prajapat
                     </div>
                 </div>
                 <div className={styles.link}>
-                    
+                    <a href="https://www.instagram.com/karansenzk1/?__coig_restricted=1" target="_blank">
+                        <i className="fa-brands fa-twitter" style={{ color: "#9141ac" }}></i>
+                    </a>
+                    <a href="https://www.instagram.com/karansenzk1/?__coig_restricted=1" target="_blank">
+                        <i className="fa-brands fa-instagram" style={{ color: "#9141ac" }}></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kranti-education-03a1b2269/" target="_blank">
+                        <i className="fa-brands fa-linkedin" style={{ color: "#9141ac" }}></i>
+                    </a>
                 </div>
             </div>
         </>
