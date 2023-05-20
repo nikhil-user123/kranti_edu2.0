@@ -51,6 +51,10 @@ html,
   align-items: center;
 }
 
+.full-width{
+  width: fullwidth;
+}
+
 .flex_direction_row{
   display: flex;
   flex-direction: row;

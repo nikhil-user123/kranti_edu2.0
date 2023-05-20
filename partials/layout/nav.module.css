@@ -32,3 +32,22 @@
     border-radius: 20px;
     margin: 0 15px 0 0;
 }
+
+.hamburger_menu{
+    display: none;
+}
+
+@media (max-width: 1230px){
+    .hamburger_menu{
+        display: block;
+    }
+}
+
+@media (max-width: 650px){
+    .header_con{
+        width: 100%;
+    }
+    .header{
+        margin: auto;
+    }
+}

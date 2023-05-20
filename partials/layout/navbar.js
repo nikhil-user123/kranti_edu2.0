@@ -1,7 +1,5 @@
+import UserMenu from '@/component/dropdown';
 import styles from '@/partials/layout/nav.module.css';
-// import { Input } from '@nextui-org/react';
-
-// import Link from 'next/link';
 
 
 const Dashboard_Nav = () => {
@@ -11,9 +9,12 @@ const Dashboard_Nav = () => {
                 <lable>
                     <input type='text' placeholder='search' />
                 </lable>
+                <div className={styles.hamburger_menu} onClick={() =>console.log("helo")}>
+                    <i className="fa-solid fa-bars fa-xl" style={{ color: "#9facbf" }}></i>
+                </div>
                 <i className="fa-regular fa-bell" style={{ padding: "0 10px" }}></i>
+                <UserMenu />
             </header>
-            {/* <Input placeholder="Next UI" />; */}
         </nav>
     );
 }

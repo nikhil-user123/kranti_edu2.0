@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Courses } from '@/helper/constants';
 
 
-
 const Dashboard = () => {
     return (
         <div className={styles.dashboard_container} >
@@ -13,7 +12,6 @@ const Dashboard = () => {
                     <hr />
                 </span>
                 <div className={styles.courses}>
-
                     {
                         Courses.map((course, index) => (
                             <div key={index} className={styles.card}>
@@ -22,9 +20,7 @@ const Dashboard = () => {
                                 <strong>{course.subject}</strong>
                                 <p>{course.desctiption}</p>
                             </div>))
-
                     }
-
                 </div>
             </div>
         </div>
