@@ -1,6 +1,48 @@
-.auth-wrapper {
+.auth_wrapper {
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: left;
+    height: 98vh;
+  }
+
+
+  .auth_inner {
+    width: 450px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all 0.3s;
+  }
+  
+  .auth_wrapper .form_control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+  }
+  
+  .auth_wrapper h3 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 20px;
+  }
+  
+  .custom_control_label {
+    font-weight: 400;
+  }
+  
+  .forgot_password,
+  .forgot_password a {
+    text-align: right;
+    font-size: 13px;
+    padding-top: 10px;
+    color: #7f7d7d;
+    margin: 0;
+    /* z-index: 999999; */
+  }
+  
+  .forgot_password a {
+    color: #167bff;
   }

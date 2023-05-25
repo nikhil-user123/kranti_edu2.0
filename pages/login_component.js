@@ -37,7 +37,7 @@ export default function Login() {
   }
 
   return (
-    <div className={styles.auth-wrapper}>
+    <div className={styles.auth_wrapper}>
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
           <h3>Sign In</h3>
@@ -80,7 +80,7 @@ export default function Login() {
               Submit
             </button>
           </div>
-          <p className="forgot-password text-right">
+          <p className={`${styles.forgot_password} `}>
             <Link href="/sign-up">Sign Up</Link>
           </p>
         </form>

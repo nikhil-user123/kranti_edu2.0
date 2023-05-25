@@ -1,11 +1,12 @@
-
-.header_con{
+.header_con {
     width: 79%;
 
     margin-top: 20px;
     text-align: right;
     margin: 20px auto 0 auto;
 }
+
+
 
 .header {
     width: fit-content;
@@ -33,21 +34,22 @@
     margin: 0 15px 0 0;
 }
 
-.hamburger_menu{
+.hamburger_menu {
     display: none;
 }
 
-@media (max-width: 1230px){
-    .hamburger_menu{
+@media (max-width: 1290px) {
+    .hamburger_menu {
         display: block;
     }
 }
 
-@media (max-width: 650px){
-    .header_con{
+@media (max-width: 650px) {
+    .header_con {
         width: 100%;
     }
-    .header{
+
+    .header {
         margin: auto;
     }
 }

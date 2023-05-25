@@ -16,6 +16,7 @@ import DashboardLayout from '@/partials/layout/dashboard'
 import Footer from '@/partials/footer'
 import GoToTop from '@/partials/gototop'
 import Dashboard_Nav from '@/partials/layout/navbar'
+import { AppProvider } from '@/context/layoutContext'
 
 
 
@@ -36,10 +37,12 @@ export default function App({ Component, pageProps }) {
   if (pathname.startsWith("/dashboard")) {
     return (
       <>
-        <DashboardLayout>
-          <Dashboard_Nav />
-          <Component {...pageProps} />
-        </DashboardLayout>
+        <AppProvider>
+          <DashboardLayout>
+            <Dashboard_Nav />
+            <Component {...pageProps} />
+          </DashboardLayout>
+        </AppProvider>
       </>
     )
   }
