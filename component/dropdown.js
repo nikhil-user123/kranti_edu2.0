@@ -6,13 +6,14 @@ const UserMenu = () => {
             <Dropdown>
                 <Dropdown.Trigger >
                     <Avatar
-                        css={{ "z-index": -1 }}
+                        // css={{ "z-index": -1 }}
                         // css ={{"width": "auto"}}
                         className="mx-10"
                         bordered
                         size="lg"
                         as="button"
-                        src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                        src="/user.jpg"
+                        // src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                     />
                 </Dropdown.Trigger>
                 <Dropdown.Menu >

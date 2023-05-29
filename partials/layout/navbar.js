@@ -9,7 +9,7 @@ const Dashboard_Nav = () => {
     const fun = () => {
          updateMessage(!showSidebar)
     }
-    console.log(showSidebar)
+    // console.log("navbar")
     return (
         <nav className={styles.header_con}>
             <header className={styles.header}>

@@ -39,9 +39,7 @@ const DashboardLayout = ({ children }) => {
 
     useEffect(() => {
         setIsOpen(showSidebar);
-        console.count("i call")
     }, [showSidebar]);
-
     return (
         // style={{ marginLeft: isOpen ? "50px" : "0px" }}
         <>
