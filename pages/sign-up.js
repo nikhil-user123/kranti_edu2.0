@@ -1,47 +1,46 @@
-import React, { Component, useState } from "react";
+"use client"
+
+import React, { useState } from "react";
 import styles from "@/styles/login.module.css";
+import Link from "next/link";
+import { useAuth } from './useAuth';
 
 export default function SignUp() {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("");
-  const [secretKey, setSecretKey] = useState("");
+  useAuth();
+  // const [fname, setFname] = useState("");
+  // const [lname, setLname] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  // const [userType, setUserType] = useState("");
+  // const [secretKey, setSecretKey] = useState("");
 
-  const handleSubmit = (e) => {
-    if (userType == "Admin" && secretKey != "AdarshT") {
-      e.preventDefault();
-      alert("Invalid Admin");
-    } else {
-      e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      console.log(fname, lname, email, password);
-      fetch("http://localhost:5000/register", {
-        method: "POST",
-        crossDomain: true,
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          fname,
-          email,
-          lname,
-          password,
-          userType,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data, "userRegister");
-          if (data.status == "ok") {
-            alert("Registration Successful");
-          } else {
-            alert("Something went wrong");
-          }
-        });
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.token;
+        localStorage.setItem('token', token);
+
+        console.log('Registration successful:', data);
+
+        // Handle successful registration, such as redirecting to a login page
+      } else {
+        console.log('Registration failed:', response.status);
+        // Handle registration failure, such as displaying an error message
+      }
+    } catch (error) {
+      console.log('Error during registration:', error);
+      // Handle registration error, such as displaying an error message
     }
   };
 
@@ -50,7 +49,7 @@ export default function SignUp() {
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
-          <div>
+          {/* <div>
             Register As
             <input
               type="radio"
@@ -77,9 +76,9 @@ export default function SignUp() {
                 onChange={(e) => setSecretKey(e.target.value)}
               />
             </div>
-          ) : null}
+          ) : null} */}
 
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label>First name</label>
             <input
               type="text"
@@ -97,15 +96,27 @@ export default function SignUp() {
               placeholder="Last name"
               onChange={(e) => setLname(e.target.value)}
             />
-          </div>
+          </div> */}
 
+          {/* 
+                      <div className="mb-3">
+                        <label>Email address</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="Enter email"
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div> */}
           <div className="mb-3">
-            <label>Email address</label>
+            <label>Username</label>
             <input
-              type="email"
+              name="username"
+              value={username}
+              type="text"
               className="form-control"
               placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -113,6 +124,8 @@ export default function SignUp() {
             <label>Password</label>
             <input
               type="password"
+              name="password"
+              value={password}
               className="form-control"
               placeholder="Enter password"
               onChange={(e) => setPassword(e.target.value)}
@@ -125,7 +138,7 @@ export default function SignUp() {
             </button>
           </div>
           <p className="forgot-password text-right">
-            Already registered <a href="/sign-in">sign in?</a>
+            Already registered <Link href="/login_component">sign in?</Link>
           </p>
         </form>
       </div>

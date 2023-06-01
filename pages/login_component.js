@@ -1,40 +1,45 @@
+"use client"
+
 import Link from "next/link";
 import styles from "@/styles/login.module.css"
-import React, { Component, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
-    fetch("http://localhost:5000/login-user", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "userRegister");
-        if (data.status == "ok") {
-          alert("login successful");
-          window.localStorage.setItem("token", data.data);
-          window.localStorage.setItem("loggedIn", true);
-
-          window.location.href = "./userDetails";
-        }
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
       });
-  }
+
+      if (response.ok) {
+
+        const data = await response.json();
+
+        const token = data.token;
+        localStorage.setItem('token', token);
+        console.log('Login successful:', data);
+        // Handle successful login, such as storing authentication token
+        router.push('/dashboard');
+      } else {
+        console.log('Login failed:', response.status);
+        // Handle login failure, such as displaying an error message
+      }
+    } catch (error) {
+      console.log('Error during login:', error);
+      // Handle login error, such as displaying an error message
+    }
+  };
 
   return (
     <div className={styles.auth_wrapper}>
@@ -43,12 +48,12 @@ export default function Login() {
           <h3>Sign In</h3>
 
           <div className="mb-3">
-            <label>Email address</label>
+            <label>username</label>
             <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -56,12 +61,12 @@ export default function Login() {
             <label>Password</label>
             <input
               type="password"
-              className="form-control"
-              placeholder="Enter password"
+              name="password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
+          {/* 
           <div className="mb-3">
             <div className="custom-control custom-checkbox">
               <input
@@ -73,7 +78,7 @@ export default function Login() {
                 Remember me
               </label>
             </div>
-          </div>
+          </div> */}
 
           <div className="d-grid">
             <button type="submit" className="btn btn-primary">

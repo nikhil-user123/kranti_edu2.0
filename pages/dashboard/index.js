@@ -1,9 +1,13 @@
 import styles from '@/styles/dashboard.module.css'
 import Image from 'next/image';
 import { Courses } from '@/helper/constants';
+import Link from 'next/link';
+import { Button } from '@nextui-org/react';
+import { useAuth } from '../useAuth';
 
 
 const Dashboard = () => {
+    useAuth();
     return (
         <div className={styles.dashboard_container} >
             <div className={styles.courses_section}>
@@ -19,6 +23,9 @@ const Dashboard = () => {
                                 <Image className={styles.image} src={course.url} alt="image" width="200" height="100" />
                                 <strong>{course.subject}</strong>
                                 <p>{course.desctiption}</p>
+                                <Link href={`/dashboard/${course.id}`}>
+                                    <Button>click here</Button>
+                                </Link>
                             </div>))
                     }
                 </div>

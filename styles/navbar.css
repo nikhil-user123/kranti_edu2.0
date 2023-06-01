@@ -18,6 +18,22 @@
   /* border-radius: 20px; */
 }
 
+.navbar.scrolled_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .navbar_content {
   display: flex;
   justify-content: space-between;
@@ -117,20 +133,7 @@
   width: 100px;
 }
 
-.scrolled_nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999999;
-}
 
-
-.scrolled_sidebar {
-  position: fixed;
-  top: 30px;
-  left: 0;
-  z-index: 999999;
-}
 /* ul li {
   margin-right: 50px;
 }
