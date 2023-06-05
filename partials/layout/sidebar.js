@@ -5,15 +5,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { AppContext } from '@/context/layoutContext';
+import { useRouter } from 'next/router';
 
 
 const DashboardLayout = ({ children }) => {
+    const router = useRouter()
     const { showSidebar, updateMessage } = useContext(AppContext);
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => {
         updateMessage(!showSidebar);
         setIsOpen(!isOpen);
     }
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        
+        router.push('/login');
+      };
+
     const menuItem = [
         {
             name: "Dashboard",
@@ -51,7 +60,7 @@ const DashboardLayout = ({ children }) => {
                             <Image src="/educational.png" alt="" width="67" height="38" />
                         </h1>
                         <div title="sidebar" className={styles.xmark}>
-                            <i className="fa-solid fa-xmark fa-xl" onClick={toggle} style={{ color: "black;", cursor: "pointer", marginLeft: "90px" }}></i>
+                            <i className="fa-solid fa-xmark fa-xl" onClick={toggle} style={{ color: "black", cursor: "pointer", marginLeft: "90px" }}></i>
                         </div>
                     </div>
                     <div className={styles.link_section}>
@@ -67,7 +76,7 @@ const DashboardLayout = ({ children }) => {
                     </div>
                     <div className={styles.logout_button} title="logout">
                         <i className="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
-                        <div className={styles.link_text} >Logout</div>
+                        <div className={styles.link_text} onClick={handleLogout} >Logout</div>
                     </div>
                 </div>
                 <main>

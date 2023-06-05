@@ -21,6 +21,11 @@
     border-color: #167bff;
     box-shadow: none;
   }
+
+  .input_div{
+    display: flex;
+    flex-direction: column;
+  }
   
   .auth_wrapper h3 {
     text-align: center;
@@ -45,4 +50,9 @@
   
   .forgot_password a {
     color: #167bff;
+  }
+
+
+  .button{
+    margin-top: 10px;
   }

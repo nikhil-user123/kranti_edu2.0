@@ -10,12 +10,12 @@ export function useAuth() {
       const token = localStorage.getItem('token');
       if (!token) {
         // Redirect to login page if token is not found
-        router.push('/login_component');
+        router.push('/login');
       }
-    }, []);
+    },[]);
 
   } catch (error) {
-    router.push('/login_component');
+    router.push('/login');
   }
 }
 

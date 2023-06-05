@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "@/styles/login.module.css"
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { Button, Input } from "@nextui-org/react";
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -47,9 +48,10 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <h3>Sign In</h3>
 
-          <div className="mb-3">
-            <label>username</label>
-            <input
+          <div className={styles.input_div}>
+            <label className={styles.custom_control_label}>Username</label>
+            <Input
+              bordered
               type="text"
               name="username"
               value={username}
@@ -57,9 +59,10 @@ export default function Login() {
             />
           </div>
 
-          <div className="mb-3">
-            <label>Password</label>
-            <input
+          <div className={styles.input_div}>
+            <label className={styles.custom_control_label}>Password</label>
+            <Input.Password
+              bordered
               type="password"
               name="password"
               value={password}
@@ -81,12 +84,12 @@ export default function Login() {
           </div> */}
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <Button type="submit" className={styles.button} size="sm" color="secondary">
               Submit
-            </button>
+            </Button>
           </div>
           <p className={`${styles.forgot_password} `}>
-            <Link href="/sign-up">Sign Up</Link>
+            <Link href="/signup">Sign Up</Link>
           </p>
         </form>
       </div>

@@ -42,6 +42,7 @@
     .hamburger_menu {
         display: block;
     }
+
 }
 
 @media (max-width: 650px) {
@@ -52,4 +53,9 @@
     .header {
         margin: auto;
     }
+
+    .header input{
+        width: auto;
+    }
+    
 }

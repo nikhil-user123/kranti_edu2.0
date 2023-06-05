@@ -9,10 +9,10 @@ import '@/styles/aboutcss.css'
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from 'react'
+import {useEffect, useState} from 'react';
 import Navbar from '@/partials/Navbar'
 import { useRouter } from "next/router";
-import DashboardLayout from '@/partials/layout/dashboard'
+import DashboardLayout from '@/partials/layout/sidebar'
 import Footer from '@/partials/footer'
 import GoToTop from '@/partials/gototop'
 import Dashboard_Nav from '@/partials/layout/navbar'
@@ -25,15 +25,15 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter();
   const { pathname } = router
-
-
+  
   useEffect(() => {
     AOS.init({
       offset: 120,
       duration: 1000
     });
+ 
   }, []);
-
+  
   if (pathname.startsWith("/dashboard")) {
     return (
       <>

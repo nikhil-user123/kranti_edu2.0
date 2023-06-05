@@ -1,6 +1,7 @@
 import UserMenu from '@/component/dropdown';
 import { AppContext } from '@/context/layoutContext';
 import styles from '@/partials/layout/nav.module.css';
+import { Input } from '@nextui-org/react';
 import { useContext } from 'react';
 
 
@@ -13,9 +14,7 @@ const Dashboard_Nav = () => {
     return (
         <nav className={styles.header_con}>
             <header className={styles.header}>
-                <lable>
-                    <input type='text' placeholder='search' />
-                </lable>
+                    <input type='text' placeholder='search' className={styles.search}/>
                 <div className={styles.hamburger_menu} onClick={fun}>
                     <i className="fa-solid fa-bars fa-xl" style={{ color: "#9facbf",cursor: "pointer" }}></i>
                 </div>

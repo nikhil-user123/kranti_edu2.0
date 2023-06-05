@@ -3,10 +3,9 @@
 import React, { useState } from "react";
 import styles from "@/styles/login.module.css";
 import Link from "next/link";
-import { useAuth } from './useAuth';
+import { Button, Input } from "@nextui-org/react";
 
 export default function SignUp() {
-  useAuth();
   // const [fname, setFname] = useState("");
   // const [lname, setLname] = useState("");
   const [username, setUsername] = useState('');
@@ -108,37 +107,39 @@ export default function SignUp() {
                           onChange={(e) => setEmail(e.target.value)}
                         />
                       </div> */}
-          <div className="mb-3">
+          <div className={styles.input_div}>
             <label>Username</label>
-            <input
+            <Input
+              bordered
               name="username"
               value={username}
               type="text"
-              className="form-control"
+              // className="form-control"
               placeholder="Enter email"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
-          <div className="mb-3">
+          <div className={styles.input_div}>
             <label>Password</label>
-            <input
+            <Input.Password
+              bordered
               type="password"
               name="password"
               value={password}
-              className="form-control"
+              // className="form-control"
               placeholder="Enter password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <Button type="submit" color="secondary" size='sm' className={styles.button}>
               Sign Up
-            </button>
+            </Button>
           </div>
           <p className="forgot-password text-right">
-            Already registered <Link href="/login_component">sign in?</Link>
+            Already registered <Link href="/login">sign in?</Link>
           </p>
         </form>
       </div>
