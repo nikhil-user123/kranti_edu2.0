@@ -22,15 +22,15 @@ export default function About() {
                     </div>
                     <div className="img-layer-container">
                         <div className="team-image" id="team-image">
-                            <Image className="t_image" width="600" height="400" alt="" src="https://apimatic.io/img/theme/aboutUs/images-1.png" />
+                            <Image className="t_image" width="600" height={1000} alt="" src="https://apimatic.io/img/theme/aboutUs/images-1.png" />
                         </div>
 
                         <div className="circles-container">
                             <div className="img-1">
-                                <Image width="500" height="500" alt="" src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />
+                                <Image width={2000} height="500" alt="" src="https://apimatic.io/img/theme/aboutUs/Circles-1-1.svg" />
                             </div>
                             <div className="img-2">
-                                <Image width="500" height="500" alt="" src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />
+                                <Image width={1500} height="500" alt="" src="https://apimatic.io/img/theme/aboutUs/Circles-2-1.svg" />
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains:["apimatic.io","aakarsh1437.s3.ap-south-1.amazonaws.com"],
+    domains:["apimatic.io","aakarsh1437.s3.ap-south-1.amazonaws.com","youtu.be"],
     // domains:["aakarsh1437.s3.ap-south-1.amazonaws.com"],
   },
 }

@@ -1,35 +1,49 @@
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { useRouter } from "next/router";
+import {useEffect, useState} from 'react';
 import axios from 'axios';
-import Image from 'next/image';
+import Image from "next/image";
 
-const ProductPage = () => {
-  const [products, setProducts] = useState([]);
+const Course = () => {
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.post('http://localhost:5000/sendproduct');
-        setProducts(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    const [modules, setModules] = useState([]);
 
-    fetchProducts();
-  }, []);
+    const router = useRouter()
+    const id = router.query.id
+    console.log("course id",id );
 
-  return (
-    <div className="center_of_page">
-      {products.map((product) => (
-        <div key={product._id}>
-          <p>{product.subject}</p>
-          <p>{product.title}</p>
-          <p>{product.description}</p>
-          <Image height={100} width={100} src={product.image} alt={product.name} />
+    useEffect(() => {
+        const fetchProfile = async () => {
+          try {
+            const response = await axios.post('http://localhost:5000/sendproduct', { productid : {id} });
+            console.log(response)
+            setModules(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchProfile();
+      }, []);
+
+    console.log(modules)
+
+    return (
+        <div >
+            <h1><Link style={{color : "black"}} href="/dashboard">back to dashboard</Link></h1>
+            {/* <p>i am dynamic route.<strong>{`===> ${id}`}</strong></p> */}
+            {
+                  modules.map((module) => (
+                    <div key={module._id}>
+                      {/* <Image src={module.link} alt="Module Image" width={100} height={100} /> */}
+                      <iframe width="200" height="100" src={module.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <h2>{module.subject}</h2>
+                      <h2>{module.title}</h2>
+                    </div>
+                  ))
+            }
         </div>
-      ))}
-    </div>
-  );
-};
+    );  
+}
 
-export default ProductPage;
+export default Course;

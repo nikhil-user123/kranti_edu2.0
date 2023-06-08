@@ -5,7 +5,7 @@ import '@/styles/Contectcss.css'
 import '@/styles/main.css'
 import '@/styles/services.css'
 import '@/styles/global.css'
-import '@/styles/aboutcss.css'
+import '@/styles/aboutcss.scss'
 
 import AOS from "aos";
 import "aos/dist/aos.css";

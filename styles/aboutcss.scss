@@ -40,7 +40,7 @@
 }
 
 .hero {
-  background: $bgDark;
+//   background: $bgDark;
   padding-left: 0;
   padding-right: 0;
   
@@ -62,16 +62,24 @@
 
 /* // BASE STYLES END */
 .team-image{
-    margin-top: 10%;
+    // margin-top: 5%;
     /* display: flex; */
     text-align: center;
     align-items: center;
     width: 100%;
+    height: 100%;   
+    background-color: #fff;
 }
 
 .team-image .t_image{
     width: 70%;
-    height: 70%;
+    height: 90%;
+}
+
+.img-2{
+    // padding-top: 80px;
+    display: flex;
+    align-items: center;
 }
 
 /* // PAGE SPECIFIC STYLES */
@@ -124,13 +132,14 @@
             }
 
             h3 {
-                color: $about-section-heading-blue;
+                // color: $about-section-heading-blue;
+                color: blueviolet;
             }
 
             p {
                 font-size: 15px;
                 margin-top: 20px;
-                color: $textDarkColor;
+                color: black;
               
                 @media (max-width:640px) {
                     font-size: 13px;
@@ -144,7 +153,7 @@
                 li {
                     line-height: 25px;
                     padding-left: 5px;
-                    color: $textDarkColor;
+                    color: black;
                 }
             }
         }

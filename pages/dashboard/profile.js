@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import styles from "@/styles/profile.module.css"
 import { useState, useEffect } from 'react';
@@ -9,18 +11,19 @@ const Profile = () => {
     const [profile, setProfile] = useState(null);
     const [open, setOpen] = useState(false)
     const token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
-    
+
     const handler = () => setOpen(true)
     const closeHandler = () => {
         setOpen(false);
         console.log("closed");
     };
-    
+
     useEffect(() => {
         const fetchProfile = async () => {
             try {
                 const response = await axios.post('http://localhost:5000/showprofile', { token });
-                console.log("ii",response)
+                console.count("res", response)
+                console.log("my calling")
                 setProfile(response.data);
             } catch (error) {
                 console.error(error);
@@ -28,7 +31,7 @@ const Profile = () => {
         };
 
         fetchProfile();
-    }, []);
+    }, [token, open]);
 
     return (
         <div className={styles.profile_container}>
@@ -59,38 +62,41 @@ const Profile = () => {
                         <div>
                             <h3 className={styles.table_header}>General Information</h3>
                         </div>
+
                         <table className={styles.table}>
-                            <tr>
-                                <th width="40%">Roll</th>
-                                <td width="5%">:</td>
-                                <td>125</td>
-                            </tr>
-                            <tr>
-                                <th width="40%">Academic Year	</th>
-                                <td width="5%">:</td>
-                                <td>2020</td>
-                            </tr>
-                            <tr>
-                                <th width="40%">Gender</th>
-                                <td width="5%">:</td>
-                                <td>Male</td>
-                            </tr>
-                            <tr>
-                                <th width="40%">Religion</th>
-                                <td width="5%">:</td>
-                                <td>Group</td>
-                            </tr>
-                            <tr>
-                                <th width="40%">blood</th>
-                                <td width="5%">:</td>
-                                <td>B+</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th width="40%">Roll</th>
+                                    <td width="5%">:</td>
+                                    <td>125</td>
+                                </tr>
+                                <tr>
+                                    <th width="40%">Academic Year	</th>
+                                    <td width="5%">:</td>
+                                    <td>2020</td>
+                                </tr>
+                                <tr>
+                                    <th width="40%">Gender</th>
+                                    <td width="5%">:</td>
+                                    <td>Male</td>
+                                </tr>
+                                <tr>
+                                    <th width="40%">Religion</th>
+                                    <td width="5%">:</td>
+                                    <td>Group</td>
+                                </tr>
+                                <tr>
+                                    <th width="40%">blood</th>
+                                    <td width="5%">:</td>
+                                    <td>B+</td>
+                                </tr>
+                            </tbody>
                         </table>
 
                     </div>
                 </div>
             </div>
-            <UploadForm open={open} onClose={closeHandler}/>
+            <UploadForm open={open} onClose={closeHandler} />
         </div>
     );
 }
