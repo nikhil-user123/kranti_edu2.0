@@ -295,7 +295,7 @@ export default function Home() {
             //MaKe neceesary change accordingly or if you want to add more details about course
             <div className={styles.course_detail_wrap}>
               <h1>Course: {course.subject}</h1>
-              <img src={course.url} alt={course.subject + " image"} />
+              <Image src={course.url} alt={course.subject + " image"} />
               <p>{course.desctiption}</p>
             </div>
           ) : (

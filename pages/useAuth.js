@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter as useRouterClient } from 'next/router';
 
-export function useAuth() {
+const useAuth = () => {
   const router = useRouter();
   try {
     useEffect(() => {
@@ -12,7 +12,7 @@ export function useAuth() {
         // Redirect to login page if token is not found
         router.push('/login');
       }
-    },[]);
+    });
 
   } catch (error) {
     router.push('/login');
@@ -23,3 +23,5 @@ export function useAuth() {
 const useRouter = typeof window !== 'undefined' ? useRouterClient : () => null;
 
 export { useRouter };
+
+export default useAuth;

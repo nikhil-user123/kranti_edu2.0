@@ -3,7 +3,7 @@ import Image from 'next/image';
 // import { Courses } from '@/helper/constants';
 import Link from 'next/link';
 import { Button } from '@nextui-org/react';
-import { useAuth } from '../useAuth';
+import  useAuth  from '../useAuth';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
