@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-const UserMenu = () => {
+const UserMenu = ({mobile_mode}) => {
     const [profile, setProfile] = useState(null);
     const token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
     const router = useRouter()
@@ -30,7 +30,7 @@ const UserMenu = () => {
 
     return (
         <>
-            <Dropdown>
+            <Dropdown >
                 <Dropdown.Trigger >
                     {profile ? (
                         <Avatar
@@ -39,6 +39,7 @@ const UserMenu = () => {
                             size="lg"
                             as="button"
                             src={profile.link}
+                            css={{"z-index": -1}}
                         />
                     ) : (
                         <Avatar
