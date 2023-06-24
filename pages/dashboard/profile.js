@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image";
 import styles from "@/styles/profile.module.css"
 import { useState, useEffect } from 'react';
@@ -21,15 +20,14 @@ const Profile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/showprofile', { token });
-                console.count("res", response)
-                console.log("my calling")
+                const response = await axios.post(`https://kranti-back.onrender.com/showprofile`, { token });
+                console.log("res", response);
+                console.log("my calling");
                 setProfile(response.data);
             } catch (error) {
                 console.error(error);
             }
         };
-
         fetchProfile();
     }, [token, open]);
 

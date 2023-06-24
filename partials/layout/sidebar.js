@@ -30,6 +30,11 @@ const DashboardLayout = ({ children }) => {
             href: "/dashboard",
         },
         {
+            name: "Assignments",
+            icon: <i className="fa-solid fa-gauge" ></i>,
+            href: "/dashboard/assignment",
+        },
+        {
             name: "Analytics",
             icon: <i className="fa-solid fa-chart-line" ></i>,
             href: "/dashboard/analytics",

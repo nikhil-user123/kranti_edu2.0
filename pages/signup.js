@@ -1,148 +1,200 @@
-"use client"
-
-import React, { useState } from "react";
-import styles from "@/styles/login.module.css";
+"use client";
 import Link from "next/link";
-import { Button, Input } from "@nextui-org/react";
+import styles from "@/styles/login.module.css";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { Form, Formik, Field } from "formik";
+import * as Yup from "yup";
+import LoadingSpinner from "@/component/LoadingSpinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
-export default function SignUp() {
-  // const [fname, setFname] = useState("");
-  // const [lname, setLname] = useState("");
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  // const [userType, setUserType] = useState("");
-  // const [secretKey, setSecretKey] = useState("");
+export default function Signup() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [failRes, setFailRes] = useState(false);
+  const [failResMsg, setFailResMsg] = useState(
+    "Signup failed. Please, try again."
+  );
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const initialValues = {
+    username: "",
+    password: "",
+  };
 
+  const signInSchema = Yup.object().shape({
+    username: Yup.string().min(6, ".minimum 6 chars").required(".required"),
+
+    password: Yup.string()
+      .required(".required")
+      .min(6, ".minimum 6 chars")
+      .max(20, ".maximum 20 chars")
+      .matches(
+        /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+        ".must contain uppercase & 1 special char"
+      ),
+  });
+
+  const submitHandler = async (values) => {
+    setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        `https://kranti-back.onrender.com/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: values.username,
+            password: values.password,
+          }),
+        }
+      );
+      const responseData = await response.json();
 
-      if (response.ok) {
-        const data = await response.json();
-        const token = data.token;
-        localStorage.setItem('token', token);
-
-        console.log('Registration successful:', data);
-
-        // Handle successful registration, such as redirecting to a login page
-      } else {
-        console.log('Registration failed:', response.status);
-        // Handle registration failure, such as displaying an error message
+      if (!response.ok) {
+        setIsLoading(false);
+        setFailRes(true);
+        setFailResMsg(responseData.error);
+        console.log(responseData);
+        console.log(responseData.error);
+        throw new Error(responseData);
       }
-    } catch (error) {
-      console.log('Error during registration:', error);
-      // Handle registration error, such as displaying an error message
+
+      const token = responseData.token;
+      localStorage.setItem("token", token);
+      console.log("Signup successful:", responseData);
+      setFailRes(false);
+      router.push("/dashboard");
+    } catch (err) {
+      setIsLoading(false);
+      setFailRes(true);
+      console.log("Error during login:", err);
     }
   };
 
   return (
     <div className={styles.auth_wrapper}>
-      <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
-          <h3>Sign Up</h3>
-          {/* <div>
-            Register As
-            <input
-              type="radio"
-              name="UserType"
-              value="User"
-              onChange={(e) => setUserType(e.target.value)}
-            />
-            User
-            <input
-              type="radio"
-              name="UserType"
-              value="Admin"
-              onChange={(e) => setUserType(e.target.value)}
-            />
-            Admin
-          </div>
-          {userType == "Admin" ? (
-            <div className="mb-3">
-              <label>Secret Key</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Secret Key"
-                onChange={(e) => setSecretKey(e.target.value)}
-              />
-            </div>
-          ) : null} */}
+      <div className={styles.auth_inner}>
+        <h3>Sign Up</h3>
 
-          {/* <div className="mb-3">
-            <label>First name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="First name"
-              onChange={(e) => setFname(e.target.value)}
-            />
-          </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={signInSchema}
+          onSubmit={(values) => {
+            submitHandler(values);
+          }}
+        >
+          {(formik) => {
+            const { errors, touched, isValid, dirty } = formik;
+            return (
+              <div className={styles.container}>
+                <div className={styles.loader_wrap}>
+                  {!isLoading && failRes && (
+                    <span className={styles.error}>{failResMsg}</span>
+                  )}
+                  {isLoading && <LoadingSpinner />}
+                </div>
 
-          <div className="mb-3">
-            <label>Last name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Last name"
-              onChange={(e) => setLname(e.target.value)}
-            />
-          </div> */}
+                <Form>
+                  <div className={styles.form_row}>
+                    <label htmlFor="username">Username</label>
+                    <Field
+                      type="text"
+                      name="username"
+                      id="username"
+                      style={
+                        touched.username
+                          ? errors.username
+                            ? { boxShadow: "0 0 0 2px red" }
+                            : { boxShadow: "0 0 0 2px #622bbb" }
+                          : { boxShadow: "0 0 0 2px #b7b7b7" }
+                      }
+                    />
+                    <span
+                      className={
+                        formik.errors.username ? styles.error : styles.no_error
+                      }
+                    >
+                      {touched.username &&
+                        (formik.errors.username ? formik.errors.username : "✓")}
+                    </span>
+                  </div>
 
-          {/* 
-                      <div className="mb-3">
-                        <label>Email address</label>
-                        <input
-                          type="email"
-                          className="form-control"
-                          placeholder="Enter email"
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                      </div> */}
-          <div className={styles.input_div}>
-            <label>Username</label>
-            <Input
-              bordered
-              name="username"
-              value={username}
-              type="text"
-              // className="form-control"
-              placeholder="Enter email"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-
-          <div className={styles.input_div}>
-            <label>Password</label>
-            <Input.Password
-              bordered
-              type="password"
-              name="password"
-              value={password}
-              // className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div className="d-grid">
-            <Button type="submit" color="secondary" size='sm' className={styles.button}>
-              Sign Up
-            </Button>
-          </div>
-          <p className="forgot-password text-right">
-            Already registered <Link href="/login">sign in?</Link>
-          </p>
-        </form>
+                  <div className={styles.form_row}>
+                    <label htmlFor="password">
+                      Password{" "}
+                      <span
+                        className={styles.show_pass}
+                        onClick={(e) => setShowPassword(!showPassword)}
+                      >
+                        {!showPassword ? (
+                          <FontAwesomeIcon icon={faEye} />
+                        ) : (
+                          <FontAwesomeIcon icon={faEyeSlash} />
+                        )}
+                      </span>
+                    </label>
+                    <Field
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      style={
+                        touched.password
+                          ? errors.password
+                            ? { boxShadow: "0 0 0 2px red" }
+                            : { boxShadow: "0 0 0 2px #622bbb" }
+                          : { boxShadow: "0 0 0 2px #b7b7b7" }
+                      }
+                    />
+                    <span
+                      className={
+                        formik.errors.password ? styles.error : styles.no_error
+                      }
+                    >
+                      {touched.password &&
+                        (formik.errors.password ? formik.errors.password : "✓")}
+                    </span>
+                  </div>
+                  <div className={styles.submit_btn_wrap}>
+                    <button
+                      type="submit"
+                      className={
+                        !(!isLoading && dirty && isValid)
+                          ? styles.disabled_btn
+                          : styles.enabled_btn
+                      }
+                      disabled={!(!isLoading && dirty && isValid)}
+                    >
+                      Sign Up
+                    </button>
+                    <div className={styles.forgot_password}>
+                      <p>
+                        {"Already a user ? "}
+                        <Link href="/login">Log In</Link>
+                      </p>
+                    </div>
+                  </div>
+                </Form>
+              </div>
+            );
+          }}
+        </Formik>
       </div>
     </div>
   );
 }
+
+/* 
+<div className="d-grid">
+            <Button type="submit" className={styles.button} size="sm" color="secondary">
+              Submit
+            </Button>
+          </div>
+          <p className={`${styles.forgot_password} `}>
+            <Link href="/signup">Sign Up</Link>
+          </p>
+*/

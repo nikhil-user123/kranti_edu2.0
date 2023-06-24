@@ -27,7 +27,7 @@ const UploadForm = ({open, onClose}) => {
       formData.append('token', token);
 
 
-      await axios.post('http://localhost:5000/upload', formData);
+      await axios.post(`https://kranti-back.onrender.com/upload`, formData);
 
 
       // Handle success

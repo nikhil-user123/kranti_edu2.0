@@ -18,18 +18,17 @@ const Footer = () => {
                     </section>
                     <section className={styles.link_sec}>
                         <h3>Quick Links</h3>
-                        <Link href="/"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>Home</Link><br />
-                        <Link href="/about"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>About us</Link><br />
-                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>Terms of Service</Link><br />
-                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>Privacy policy</Link><br />
+                        <Link href="/"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Home</Link>
+                        <Link href="/about"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> About us</Link>
+                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Terms of Service</Link>
+                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Privacy policy</Link>
                     </section>
                     <section className={styles.link_sec}>
                         <h3>Our Courses</h3>
                         <Link href="/">
-                            <i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>
-                            Class 6</Link><br />
-                        <Link href="/about"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>Class 7</Link><br />
-                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i>Class 8</Link><br />
+                           <i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Class 6</Link><br />
+                        <Link href="/about"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Class 7</Link><br />
+                        <Link href="#"><i className="fa-solid fa-chevron-right" style={{ color: "#622bbb" }}></i> Class 8</Link><br />
                     </section>
                     <section className={styles.link_sec}>
                         <h3>Get in Touch !</h3>

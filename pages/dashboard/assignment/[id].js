@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "@/styles/courses.module.css";
+import styles from "@/styles/assignment.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
@@ -16,17 +16,97 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React from "react";
 import ReactPlayer from "react-player/youtube";
+import QuizBox from "@/component/QuizBox";
 
 //this are course details pass this as props from previous page
 
 /******* Note All the styling is done, except fonts add more styling if you need, page is
   robust, and responsive except code, which you can make more redundant if you need
 */
+
+const questionArray = [
+  {
+    question: "What are the different types of simulation Models ?1",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "Many data analytics approaches nowadays rely on specialized systems and software that combine machine learning ?",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?3",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?4",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?5",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?6",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?7",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?8",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+  {
+    question: "What are the different types of simulation Models ?9",
+    op_one: "Option 1",
+    op_two: "Option 2",
+    op_three: "Option 3",
+    op_forth: "Option 4",
+    answer: "Option 1",
+  },
+];
+
 export default function Home() {
   const [courseContent, setCourseContent] = useState(true); //to view course details or mudule details
   const [activeModuleId, setActiveModuleId] = useState(-1); //to choose module index from module array
+  const [quizModuleId, setQuizModuleId] = useState(-1);
   const [activeModule, setActiveModule] = useState(); //to choose object from module array
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [quizMode, setQuizMode] = useState(false);
+  const [quizData, setQuizData] = useState();
   const [modules, setModules] = useState([]);
   const [course, setCourse] = useState({
     id: "0",
@@ -61,6 +141,30 @@ export default function Home() {
     fetchProfile();
   }, [id]);
 
+  useEffect (() => {
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios.post(
+          `https://kranti-back.onrender.com/sendquestion`,
+          { moduleId: quizModuleId }
+        );
+  
+        const data = await response.data;
+        console.log("data response questions", data);
+        console.log("data length", data.length);
+        if (data.length !== 0) {
+          setQuizData(data);
+        } else {
+          setQuizData(questionArray);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchQuestions();
+  }, [quizModuleId]);
+
+  
   console.log(modules);
 
   //when course details are open moudle details will be closed
@@ -88,6 +192,11 @@ export default function Home() {
   //handles mobile drawer opening and closing
   const mobileDrawerHandler = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
+  };
+
+  //handles Quiz State
+  const quizStartHandler = () => {
+    setQuizMode(!quizMode);
   };
 
   return (
@@ -141,10 +250,15 @@ export default function Home() {
                   onClick={() => {
                     //on clicking it will turn of course details
                     setCourseContent(false);
+                    setQuizMode(false);
                     //set module details which was clicked to active module state
                     setActiveModule(modules[index]);
                     //set index of module which was clicked to activeModuleId state
                     setActiveModuleId(index);
+                    //set module._id so we can call all quiz questions
+                    setQuizModuleId(item._id);
+                    //
+                    
                     //turn of mobile drawer if open
                     setMobileDrawerOpen(false);
                   }}
@@ -194,8 +308,13 @@ export default function Home() {
                 onClick={() => {
                   //on clicking it will turn of course details
                   setCourseContent(false);
+                  setQuizMode(false);
                   //set module details which was clicked to active module state
                   setActiveModule(modules[index]);
+                  //set module._id so we can call all quiz questions
+                  setQuizModuleId(item._id);
+
+                  
                   //set index of module which was clicked to activeModuleId state
                   setActiveModuleId(index);
                 }}
@@ -255,19 +374,36 @@ export default function Home() {
                   <FontAwesomeIcon icon={faAngleRight} />
                 </div>
               </div>
-              {/* Active module topic*/}
-              <h3>{activeModule.topic}</h3>
-              {/* Active module video , thubnail of video will be Module Image*/}
-              <div className="video-player_wrap">
-                <ReactPlayer
-                  width="100%"
-                  controls={true}
-                  url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+              {!quizMode ? (
+                <>
+                  <h3>{activeModule.topic}</h3>
+                  <div className={styles.quiz_start_wrap}>
+                    <h3>Hello UserName!</h3>
+                    <p>This is the quiz assignment for {activeModule.topic}.</p>
+                    <p>
+                      Please read all the following rules before starting the
+                      quiz.
+                    </p>
+                    <ul>
+                      <li>Each Question will be visible for 10sec.</li>
+                      <li>For each right answer +1 score</li>
+                      <li>For each wrong answer +0 score</li>
+                      <li>You can move only forward not backward</li>
+                    </ul>
+                    <div
+                      className={styles.quiz_start_button}
+                      onClick={quizStartHandler}
+                    >
+                      Start Quiz
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <QuizBox
+                  questionArray={quizData}
+                  closer={() => setQuizMode(false)}
                 />
-              </div>
-              {/*active module description */}
-
-              <p>{activeModule.description}</p>
+              )}
             </div>
           )}
         </div>

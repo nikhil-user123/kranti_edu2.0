@@ -9,17 +9,17 @@ import axios from 'axios';
 
 
 const Dashboard = () => {
-    useAuth();
+    // useAuth();
 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/sendproduct');
+                const response = await axios.post(`https://kranti-back.onrender.com/sendproduct`);
                 setProducts(response.data);
             } catch (error) {
-                console.error(error); 
+                console.error(error);
             }
         };
 
@@ -40,10 +40,10 @@ const Dashboard = () => {
                             <div key={course._id} className={styles.card}>
                                 {/* <iframe width="200" height="100" src="https://www.youtube.com/embed/xNRJwmlRBNU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
                                 <Image className={styles.image} src={course.image} alt="image" width="200" height="100" />
-                                <strong>{course.subject}</strong>
-                                <p>{course.title}</p>
-                                <p>{course.description}</p>
-                                <Link href={`/dashboard/${course._id}`}>
+                                <strong>Subject : {course.subject}</strong>
+                                <p>Title : {course.title.substring(0,18)}</p>
+                                <p>Description : {course.description.substring(0,50)}...</p>
+                                <Link className={styles.button} href={`/dashboard/${course._id}`} >
                                     <Button>click here</Button>
                                 </Link>
                             </div>))

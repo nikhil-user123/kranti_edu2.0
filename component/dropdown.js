@@ -3,21 +3,20 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-const UserMenu = ({mobile_mode}) => {
+const UserMenu = () => {
     const [profile, setProfile] = useState(null);
     const token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
     const router = useRouter()
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-
         router.push('/login');
     };
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.post('http://localhost:5000/showprofile', { token });
+                const response = await axios.post(`https://kranti-back.onrender.com/showprofile`, { token });
                 console.log(response)
                 setProfile(response.data);
             } catch (error) {
@@ -30,7 +29,7 @@ const UserMenu = ({mobile_mode}) => {
 
     return (
         <>
-            <Dropdown >
+            <Dropdown>
                 <Dropdown.Trigger >
                     {profile ? (
                         <Avatar
@@ -39,7 +38,6 @@ const UserMenu = ({mobile_mode}) => {
                             size="lg"
                             as="button"
                             src={profile.link}
-                            css={{"z-index": -1}}
                         />
                     ) : (
                         <Avatar
@@ -63,9 +61,7 @@ const UserMenu = ({mobile_mode}) => {
                         </Link>
                     </Dropdown.Item>
                     <Dropdown.Item key="Logout">
-                        <Link className="color-black" href="#">
-                            <div className='full-width' onClick={handleLogout}>Logout</div>
-                        </Link>
+                        <div className='full-width' onClick={handleLogout}>Logout</div>
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

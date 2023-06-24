@@ -1,58 +1,151 @@
 .auth_wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    height: 98vh;
-  }
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: left;
+  height: 98vh;
+}
 
+.auth_inner {
+  max-width: 450px;
+  width: 100%;
+  margin: 80px auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 20px 55px 20px 55px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
 
+.auth_wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.no_error {
+  padding-left: 0.2rem;
+  color: #622bbb;
+  font-size: x-small;
+  line-height: 1rem;
+  font-weight: 300;
+}
+.error {
+  padding-left: 0.2rem;
+  color: red;
+  font-size: x-small;
+  line-height: 1rem;
+  font-weight: 300;
+}
+
+.loader_wrap {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form_row {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form_row label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: small;
+  font-weight: lighter;
+  line-height: normal;
+  margin: 0;
+}
+
+.show_pass{
+  margin-right: 10px;
+  color: #622bbb;
+}
+
+.form_row input {
+  padding: 10px 12px;
+  outline: none;
+  line-height: normal;
+  border-radius: 0.5rem;
+  border: none;
+  margin-top: 5px;
+}
+
+.form_row input:focus {
+  box-shadow: 0 0 0 2px #622bbb;
+}
+.form_row input:hover {
+  box-shadow: 0 0 0 2px #622bbb;
+}
+
+.submit_btn_wrap {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.enabled_btn {
+  cursor: pointer;
+  color: #622bbb;
+  background-color: #622bbb15;
+  border: 2px solid #622bbb;
+  font-weight: 500;
+  margin: 10px 0;
+  padding: 10px 30px;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in;
+}
+
+.enabled_btn:hover {
+  background-color: #622bbb;
+  color: white;
+}
+
+.disabled_btn {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  background-color: #a3a3a3;
+  font-weight: 500;
+  margin: 10px 0;
+  padding: 10px 30px;
+  color: black;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.5;
+}
+
+.forgot_password {
+  cursor: pointer;
+  height: 25px;
+  margin: auto 0px auto 10px;
+}
+
+.forgot_password a{
+  color: #622bbb;
+}
+.forgot_password a:hover{
+  text-decoration: underline;
+  font-size: 15px;
+}
+.forgot_password p{
+  color: #757575;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
   .auth_inner {
-    width: 450px;
-    margin: auto;
-    background: #ffffff;
-    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all 0.3s;
+    width: 97%;
+    margin: 80px auto;
+    padding: 20px 38px 20px 38px;
   }
-  
-  .auth_wrapper .form_control:focus {
-    border-color: #167bff;
-    box-shadow: none;
-  }
-
-  .input_div{
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .auth_wrapper h3 {
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 20px;
-  }
-  
-  .custom_control_label {
-    font-weight: 400;
-  }
-  
-  .forgot_password,
-  .forgot_password a {
-    text-align: right;
-    font-size: 13px;
-    padding-top: 10px;
-    color: #7f7d7d;
-    margin: 0;
-    /* z-index: 999999; */
-  }
-  
-  .forgot_password a {
-    color: #167bff;
-  }
-
-
-  .button{
-    margin-top: 10px;
-  }
+}

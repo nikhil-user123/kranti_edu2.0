@@ -10,7 +10,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/showprofile', { token });
+        const response = await axios.post(`https://kranti-back.onrender.com/showprofile`, { token });
         console.log(response)
         setProfile(response.data);
       } catch (error) {

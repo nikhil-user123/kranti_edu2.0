@@ -1,5 +1,4 @@
 import React, { Component, useEffect, useState } from "react";
-import main from './main.css'
 export default function UserHome({ userData }) {
   const logOut = () => {
     window.localStorage.clear();
